@@ -7,4 +7,4 @@ This is a solution to the [Calculator app challenge on Frontend Mentor](https://
 ## Links
 
 - Live Site [URL](https://mhmd-tarek-mhmd.github.io/PWA-Calculator-app)
-- Solution [URL](https://www.frontendmentor.io/solutions/pwa-calculator-app-)
+- Solution [URL](https://www.frontendmentor.io/solutions/pwa-calculator-app-plN1pFgs9G)
