@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="1">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator app</title>
+  </head>
+  <body>
+    <main>
+      <header class="header">
+        <h1 class="logo">calc</h1>
+
+        <button
+          type="button"
+          role="switch"
+          aria-checked="true"
+          aria-label="Theme 1 is selected"
+          id="theme-toggler"
+        >
+          <span aria-hidden="true" class="labels">
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+          </span>
+
+          <span aria-hidden="true" class="thumb"></span>
+        </button>
+      </header>
+
+      <div role="region" aria-label="Calculator" class="calc">
+        <div
+          role="region"
+          aria-label="Calculator screen"
+          class="screen initial"
+        >
+          <h2 id="screen">0</h2>
+        </div>
+
+        <div role="region" aria-label="Calculator controls" class="controls">
+          <button>7</button>
+          <button>8</button>
+          <button>9</button>
+          <button id="del" class="special" aria-label="Delete">DEL</button>
+
+          <button>4</button>
+          <button>5</button>
+          <button>6</button>
+          <button id="add" aria-label="Add">+</button>
+
+          <button>1</button>
+          <button>2</button>
+          <button>3</button>
+          <button id="subtract" aria-label="Subtract">-</button>
+
+          <button>.</button>
+          <button>0</button>
+          <button id="division" aria-label="Division">/</button>
+          <button id="multiply" aria-label="Multiply">x</button>
+
+          <button id="reset" class="special">RESET</button>
+          <button id="equal" class="special" aria-label="Equal">=</button>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
