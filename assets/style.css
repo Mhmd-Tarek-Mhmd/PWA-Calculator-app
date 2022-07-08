@@ -1,0 +1,309 @@
+/*
+  Themes colors
+*/
+
+/* Theme 1 */
+html[data-theme="1"] {
+  --body-bg: hsl(222, 26%, 31%);
+  --screen-bg: hsl(224, 36%, 15%);
+  --keypad-bg: hsl(223, 31%, 20%);
+
+  --del-reset-key-bg: hsl(225, 21%, 49%);
+  --del-reset-key-shadow: hsl(224, 28%, 35%);
+
+  --equal-thumb-bg: hsl(6, 63%, 50%);
+  --equal-key-shadow: hsl(6, 70%, 34%);
+
+  --num-key-bg: hsl(30, 25%, 89%);
+  --num-key-shadow: hsl(28, 16%, 65%);
+
+  --primary-txt: hsl(0, 0%, 100%);
+  --secondary-txt: hsl(221, 14%, 31%);
+}
+
+/* Theme 2 */
+html[data-theme="2"] {
+  --body-bg: hsl(0, 0%, 90%);
+  --screen-bg: hsl(0, 0%, 93%);
+  --keypad-bg: hsl(0, 5%, 81%);
+
+  --del-reset-key-bg: hsl(185, 42%, 37%);
+  --del-reset-key-shadow: hsl(185, 58%, 25%);
+
+  --equal-thumb-bg: hsl(25, 98%, 40%);
+  --equal-key-shadow: hsl(25, 99%, 27%);
+
+  --num-key-bg: hsl(45, 7%, 89%);
+  --num-key-shadow: hsl(35, 11%, 61%);
+
+  --primary-txt: hsl(60, 10%, 19%);
+  --secondary-txt: hsl(0, 0%, 100%);
+}
+
+/* Theme 3 */
+html[data-theme="3"] {
+  --body-bg: hsl(268, 75%, 9%);
+  --screen-bg: hsl(268, 71%, 12%);
+  --keypad-bg: hsl(268, 71%, 12%);
+
+  --del-reset-key-bg: hsl(281, 89%, 26%);
+  --del-reset-key-shadow: hsl(285, 91%, 52%);
+
+  --equal-thumb-bg: hsl(176, 100%, 44%);
+  --equal-key-shadow: hsl(177, 92%, 70%);
+
+  --num-key-bg: hsl(268, 47%, 21%);
+  --num-key-shadow: hsl(290, 70%, 36%);
+
+  --primary-txt: hsl(52, 100%, 62%);
+  --secondary-txt: hsl(0, 0%, 100%);
+}
+
+/*
+  Global styles
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font: 700 19px/1 "League Spartan", sans-serif;
+}
+@media (min-width: 768px) {
+  * {
+    font-size: 27px;
+  }
+}
+
+body {
+  display: grid;
+  height: 100vh;
+  min-height: 800px;
+  place-items: center;
+  color: var(--primary-txt);
+  background-color: var(--body-bg);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+@media (max-width: 767px) {
+  body {
+    padding: 0 24px;
+    min-height: 677px;
+  }
+}
+
+main {
+  max-width: 327px;
+}
+@media (min-width: 768px) {
+  main {
+    max-width: 540px;
+  }
+}
+
+button {
+  border: none;
+  color: inherit;
+  background: none;
+}
+
+/*
+  App styles
+*/
+
+/* [1] Header */
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 32px;
+  justify-content: space-between;
+}
+header .logo {
+  font-size: 30px;
+}
+#theme-toggler {
+  width: 71px;
+  height: 26px;
+  padding: 5px;
+  display: flex;
+  cursor: pointer;
+  position: relative;
+  border-radius: 14px;
+  background-color: var(--keypad-bg);
+}
+html[data-theme="1"] #theme-toggler {
+  justify-content: flex-start;
+}
+html[data-theme="2"] #theme-toggler {
+  justify-content: center;
+}
+html[data-theme="3"] #theme-toggler {
+  justify-content: flex-end;
+}
+#theme-toggler::before {
+  top: 8px;
+  left: -64px;
+  content: "THEME";
+  position: absolute;
+  letter-spacing: 1px;
+  speak: never;
+}
+#theme-toggler > * {
+  display: block;
+}
+#theme-toggler .labels {
+  left: 2px;
+  top: -16px;
+  width: 100%;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: space-around;
+}
+#theme-toggler::before,
+#theme-toggler .labels > * {
+  font-size: 12px;
+}
+#theme-toggler .thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  will-change: filter;
+  background-color: var(--equal-thumb-bg);
+}
+#theme-toggler:hover .thumb,
+#theme-toggler:focus-visible .thumb {
+  -webkit-filter: brightness(1.4);
+  filter: brightness(1.4);
+}
+
+/* [2] Calculator */
+.calc {
+  gap: 24px;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 88px 420px;
+}
+.calc > * {
+  border-radius: 10px;
+}
+@media (min-width: 768px) {
+  .calc {
+    grid-template-rows: 128px 480px;
+  }
+}
+
+/* Calculator Screen */
+
+#screen {
+  font-size: 2em;
+}
+.calc .screen {
+  display: grid;
+  padding-right: 26px;
+  align-items: center;
+  justify-content: end;
+  background-color: var(--screen-bg);
+  overflow-x: auto;
+  white-space: nowrap;
+  grid-template-columns: 100%;
+  text-align: right;
+}
+@media (min-width: 768px) {
+  .calc .screen {
+    padding-right: 35px;
+  }
+}
+.calc .screen::-webkit-scrollbar {
+  height: 8px;
+}
+.calc .screen::-webkit-scrollbar-track {
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px var(--num-key-shadow);
+}
+.calc .screen::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: var(--primary-txt);
+  outline: 1px solid var(--primary-txt);
+}
+
+/* Calculator Controls */
+
+#reset,
+#equal {
+  grid-column: span 2;
+}
+.calc .controls {
+  gap: 13px;
+  display: grid;
+  padding: 24px;
+  background-color: var(--keypad-bg);
+  grid-template-rows: repeat(5, minmax(0, 64px));
+  grid-template-columns: repeat(4, minmax(0, 60px));
+}
+@media (min-width: 768px) {
+  .calc .controls {
+    gap: 24px;
+    padding: 32px;
+    grid-template-columns: repeat(4, 101px);
+  }
+}
+.controls * {
+  border-radius: 5px;
+  will-change: box-shadow, transform, filter;
+}
+.controls *.active,
+.controls *:hover,
+.controls *:focus-visible {
+  -webkit-filter: brightness(1.4);
+  filter: brightness(1.4);
+}
+
+/* Buttons Typography */
+
+.controls :not(.special) {
+  font-size: 32px;
+  background-color: var(--num-key-bg);
+  box-shadow: inset 0 -4px var(--num-key-shadow);
+}
+@media (min-width: 768px) {
+  .controls :not(.special) {
+    font-size: 40px;
+  }
+}
+.controls :not(.special).active {
+  box-shadow: inset 0 4px var(--num-key-shadow);
+}
+html[data-theme="1"] .controls :not(.special) {
+  color: var(--secondary-txt);
+}
+
+#reset,
+#del {
+  background-color: var(--del-reset-key-bg);
+  box-shadow: inset 0 -4px var(--del-reset-key-shadow);
+}
+#reset.active,
+#del.active {
+  transform: scale(0.98);
+  box-shadow: inset 0 4px var(--del-reset-key-shadow);
+}
+#equal {
+  background-color: var(--equal-thumb-bg);
+  box-shadow: inset 0 -4px var(--equal-key-shadow);
+}
+#equal.active {
+  box-shadow: inset 0 4px var(--equal-key-shadow);
+}
+
+html[data-theme="2"] .controls .special {
+  color: var(--secondary-txt);
+}
+html[data-theme="3"] .controls .special:not(#equal) {
+  color: var(--secondary-txt);
+}
+html[data-theme="3"] #equal {
+  color: hsl(198, 20%, 13%);
+}
